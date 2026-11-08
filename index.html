@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mekinjir</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            /* MATIKAN SELEKSI & HOLD DI SEMUA ELEMEN */
+            -webkit-touch-callout: none; /* iOS: matiin popup hold */
+            -webkit-user-select: none;   /* Safari */
+            -ms-user-select: none;       /* IE/Edge */
+            user-select: none;           /* Standar */
+            -webkit-tap-highlight-color: transparent; /* Hilangkan highlight biru saat tap */
+        }
+
+        body {
+            min-height: 100vh;
+            background-color: #0f172a;
+            color: #111;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 50px 20px 80px 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* LAYER BACKGROUND KOTA BERGERAK */
+        .city-bg {
+            position: fixed;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            z-index: -2;
+            background-image: 
+                linear-gradient(rgba(79, 70, 229, 0.15) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(79, 70, 229, 0.15) 1px, transparent 1px);
+            background-size: 60px 60px;
+            animation: moveGrid 20s linear infinite;
+            pointer-events: none; /* Matikan interaksi */
+        }
+
+        .city-bg-2 {
+            position: fixed;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            z-index: -1;
+            background-image: 
+                linear-gradient(rgba(147, 51, 234, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(147, 51, 234, 0.1) 1px, transparent 1px);
+            background-size: 20px 20px;
+            animation: moveGrid 12s linear infinite reverse;
+            pointer-events: none;
+        }
+
+        .glow-center {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(79, 70, 229, 0.2) 0%, transparent 70%);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        @keyframes moveGrid {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(60px, 60px); }
+        }
+
+        /* KONTEN */
+        .container {
+            width: 100%;
+            max-width: 400px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* PROFIL */
+        .profile-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .profile-img-wrapper {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .profile-img-wrapper::before {
+            content: '';
+            position: absolute;
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #4f46e5, #9333ea);
+            filter: blur(15px);
+            opacity: 0.7;
+            z-index: 0;
+        }
+
+        .profile-img {
+            width: 95px;
+            height: 95px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #fff;
+            position: relative;
+            z-index: 1;
+            pointer-events: none; /* MATIKAN KLIK/HOLD PADA GAMBAR */
+            -webkit-user-drag: none; /* Matikan drag gambar di desktop */
+            user-drag: none;
+        }
+
+        .username {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #fff;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+        }
+
+        .divider {
+            width: 50px;
+            height: 2px;
+            background: #3f3f5a;
+            border-radius: 2px;
+            margin-bottom: 15px;
+        }
+
+        /* ICON TIKTOK */
+        .social-icons {
+            display: flex;
+            gap: 12px;
+        }
+
+        .social-icon {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: #fff;
+            font-size: 1.1rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+            background: #4f46e5;
+            border-color: #4f46e5;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.4);
+        }
+
+        /* LINK CARD */
+        .links-section {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .link-card {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            padding: 10px 15px;
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 14px;
+            text-decoration: none;
+            color: #111;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        }
+
+        .link-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+            border-color: #d1d5db;
+        }
+
+        /* GAMBAR DALAM LINK CARD GAK BISA DI-HOLD */
+        .link-icon {
+            width: 42px;
+            height: 42px;
+            border-radius: 10px;
+            object-fit: cover;
+            margin-right: 12px;
+            pointer-events: none;
+            -webkit-user-drag: none;
+            user-drag: none;
+        }
+
+        .link-text {
+            flex: 1;
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-align: center;
+            color: #1f2937;
+            margin-right: 10px; 
+        }
+
+        .link-arrow {
+            color: #9ca3af;
+            font-size: 0.9rem;
+            transition: transform 0.3s ease;
+            pointer-events: none;
+        }
+
+        .link-card:hover .link-arrow {
+            color: #4f46e5;
+            transform: translateX(3px);
+        }
+
+        /* FOOTER */
+        .floating-footer {
+            position: fixed;
+            bottom: 20px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.8rem;
+            font-weight: 500;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 6px;
+            pointer-events: none;
+            z-index: 10;
+            background: linear-gradient(to top, #0f172a 30%, transparent);
+            padding: 15px 0 10px 0;
+        }
+
+        .floating-footer i {
+            color: #4f46e5;
+        }
+    </style>
+</head>
+<body oncontextmenu="return false;"> <!-- MATIKAN KLIK KANAN DI SELURUH BODY -->
+
+    <div class="city-bg"></div>
+    <div class="city-bg-2"></div>
+    <div class="glow-center"></div>
+
+    <div class="container">
+        
+        <div class="profile-section">
+            <div class="profile-img-wrapper">
+                <img src="https://files.catbox.moe/zcbhii.png" alt="mekinjir" class="profile-img" draggable="false">
+            </div>
+            
+            <h1 class="username">mekinjir</h1>
+            <div class="divider"></div>
+            
+            <div class="social-icons">
+                <a href="https://www.tiktok.com/@mekinjir" target="_blank" class="social-icon" title="TikTok">
+                    <i class="fa-brands fa-tiktok"></i>
+                </a>
+            </div>
+        </div>
+
+        <div class="links-section">
+            
+            <a href="https://discord.gg/tPP7VkFZ9" target="_blank" class="link-card">
+                <img src="https://files.catbox.moe/5swvjk.png" alt="hub" class="link-icon" draggable="false">
+                <span class="link-text">MEKI HUB</span>
+                <i class="fa-solid fa-chevron-right link-arrow"></i>
+            </a>
+
+            <a href="https://sfl.gl/EG21Lk" target="_blank" class="link-card">
+                <img src="https://files.catbox.moe/6af47n.jpg" alt="mod" class="link-icon" draggable="false">
+                <span class="link-text">APK VSPHONE MOD</span>
+                <i class="fa-solid fa-chevron-right link-arrow"></i>
+            </a>
+
+        </div>
+
+    </div>
+
+    <div class="floating-footer">
+        <i class="fa-solid fa-code"></i>
+        <span>by mekinjir</span>
+    </div>
+
+</body>
+</html>
