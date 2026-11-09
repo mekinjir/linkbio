@@ -15,11 +15,11 @@
             box-sizing: border-box;
             font-family: 'Poppins', sans-serif;
             /* MATIKAN SELEKSI & HOLD DI SEMUA ELEMEN */
-            -webkit-touch-callout: none; /* iOS: matiin popup hold */
-            -webkit-user-select: none;   /* Safari */
-            -ms-user-select: none;       /* IE/Edge */
-            user-select: none;           /* Standar */
-            -webkit-tap-highlight-color: transparent; /* Hilangkan highlight biru saat tap */
+            -webkit-touch-callout: none; 
+            -webkit-user-select: none;   
+            -ms-user-select: none;       
+            user-select: none;           
+            -webkit-tap-highlight-color: transparent; 
         }
 
         body {
@@ -47,7 +47,7 @@
                 linear-gradient(90deg, rgba(79, 70, 229, 0.15) 1px, transparent 1px);
             background-size: 60px 60px;
             animation: moveGrid 20s linear infinite;
-            pointer-events: none; /* Matikan interaksi */
+            pointer-events: none;
         }
 
         .city-bg-2 {
@@ -130,8 +130,8 @@
             border: 3px solid #fff;
             position: relative;
             z-index: 1;
-            pointer-events: none; /* MATIKAN KLIK/HOLD PADA GAMBAR */
-            -webkit-user-drag: none; /* Matikan drag gambar di desktop */
+            pointer-events: none; 
+            -webkit-user-drag: none; 
             user-drag: none;
         }
 
@@ -207,7 +207,6 @@
             border-color: #d1d5db;
         }
 
-        /* GAMBAR DALAM LINK CARD GAK BISA DI-HOLD */
         .link-icon {
             width: 42px;
             height: 42px;
@@ -221,7 +220,8 @@
 
         .link-text {
             flex: 1;
-            font-size: 0.95rem;
+            /* Ukuran font sedikit dikecilin biar teks panjang "VSPHONE ORI GRATIS 4 JAM" muat rapi */
+            font-size: 0.88rem; 
             font-weight: 600;
             text-align: center;
             color: #1f2937;
@@ -265,7 +265,7 @@
         }
     </style>
 </head>
-<body oncontextmenu="return false;"> <!-- MATIKAN KLIK KANAN DI SELURUH BODY -->
+<body oncontextmenu="return false;">
 
     <div class="city-bg"></div>
     <div class="city-bg-2"></div>
@@ -290,15 +290,25 @@
 
         <div class="links-section">
             
+            <!-- CARD 1: MEKI HUB -->
             <a href="https://discord.gg/tPP7VkFZ9" target="_blank" class="link-card">
                 <img src="https://files.catbox.moe/5swvjk.png" alt="hub" class="link-icon" draggable="false">
                 <span class="link-text">MEKI HUB</span>
                 <i class="fa-solid fa-chevron-right link-arrow"></i>
             </a>
 
+            <!-- CARD 2: VSPHONE MOD -->
             <a href="https://sfl.gl/EG21Lk" target="_blank" class="link-card">
                 <img src="https://files.catbox.moe/6af47n.jpg" alt="mod" class="link-icon" draggable="false">
                 <span class="link-text">APK VSPHONE MOD</span>
+                <i class="fa-solid fa-chevron-right link-arrow"></i>
+            </a>
+
+            <!-- CARD 3: VSPHONE ORI (BARU) -->
+            <!-- GANTI href="..." di bawah ini kalau link VSPHONE ORI beda sama yang MOD -->
+            <a href="https://sfl.gl/EG21Lk" target="_blank" class="link-card">
+                <img src="https://files.catbox.moe/6af47n.jpg" alt="ori" class="link-icon" draggable="false">
+                <span class="link-text">VSPHONE ORI GRATIS 4 JAM PER AKUN</span>
                 <i class="fa-solid fa-chevron-right link-arrow"></i>
             </a>
 
