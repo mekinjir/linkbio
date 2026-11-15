@@ -4,22 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>mekinjir</title>
-    
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: 'Poppins', sans-serif;
-            /* MATIKAN SELEKSI & HOLD DI SEMUA ELEMEN */
-            -webkit-touch-callout: none; 
-            -webkit-user-select: none;   
-            -ms-user-select: none;       
-            user-select: none;           
-            -webkit-tap-highlight-color: transparent; 
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            -webkit-tap-highlight-color: transparent;
         }
 
         body {
@@ -34,7 +31,6 @@
             overflow-x: hidden;
         }
 
-        /* LAYER BACKGROUND KOTA BERGERAK */
         .city-bg {
             position: fixed;
             top: -50%;
@@ -42,9 +38,8 @@
             width: 200%;
             height: 200%;
             z-index: -2;
-            background-image: 
-                linear-gradient(rgba(79, 70, 229, 0.15) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(79, 70, 229, 0.15) 1px, transparent 1px);
+            background-image: linear-gradient(rgba(79, 70, 229, 0.15) 1px, transparent 1px),
+                              linear-gradient(90deg, rgba(79, 70, 229, 0.15) 1px, transparent 1px);
             background-size: 60px 60px;
             animation: moveGrid 20s linear infinite;
             pointer-events: none;
@@ -57,9 +52,8 @@
             width: 200%;
             height: 200%;
             z-index: -1;
-            background-image: 
-                linear-gradient(rgba(147, 51, 234, 0.1) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(147, 51, 234, 0.1) 1px, transparent 1px);
+            background-image: linear-gradient(rgba(147, 51, 234, 0.1) 1px, transparent 1px),
+                              linear-gradient(90deg, rgba(147, 51, 234, 0.1) 1px, transparent 1px);
             background-size: 20px 20px;
             animation: moveGrid 12s linear infinite reverse;
             pointer-events: none;
@@ -82,7 +76,6 @@
             100% { transform: translate(60px, 60px); }
         }
 
-        /* KONTEN */
         .container {
             width: 100%;
             max-width: 400px;
@@ -94,7 +87,6 @@
             z-index: 1;
         }
 
-        /* PROFIL */
         .profile-section {
             display: flex;
             flex-direction: column;
@@ -130,8 +122,8 @@
             border: 3px solid #fff;
             position: relative;
             z-index: 1;
-            pointer-events: none; 
-            -webkit-user-drag: none; 
+            pointer-events: none;
+            -webkit-user-drag: none;
             user-drag: none;
         }
 
@@ -151,7 +143,6 @@
             margin-bottom: 15px;
         }
 
-        /* ICON TIKTOK */
         .social-icons {
             display: flex;
             gap: 12px;
@@ -179,7 +170,6 @@
             box-shadow: 0 4px 12px rgba(79, 70, 229, 0.4);
         }
 
-        /* LINK CARD */
         .links-section {
             width: 100%;
             display: flex;
@@ -198,12 +188,12 @@
             text-decoration: none;
             color: #111;
             transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
         }
 
         .link-card:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
             border-color: #d1d5db;
         }
 
@@ -220,12 +210,11 @@
 
         .link-text {
             flex: 1;
-            /* Ukuran font sedikit dikecilin biar teks panjang "VSPHONE ORI GRATIS 4 JAM" muat rapi */
-            font-size: 0.88rem; 
+            font-size: 0.88rem;
             font-weight: 600;
             text-align: center;
             color: #1f2937;
-            margin-right: 10px; 
+            margin-right: 10px;
         }
 
         .link-arrow {
@@ -240,7 +229,6 @@
             transform: translateX(3px);
         }
 
-        /* FOOTER */
         .floating-footer {
             position: fixed;
             bottom: 20px;
@@ -272,15 +260,13 @@
     <div class="glow-center"></div>
 
     <div class="container">
-        
+
         <div class="profile-section">
             <div class="profile-img-wrapper">
                 <img src="https://files.catbox.moe/zcbhii.png" alt="mekinjir" class="profile-img" draggable="false">
             </div>
-            
             <h1 class="username">mekinjir</h1>
             <div class="divider"></div>
-            
             <div class="social-icons">
                 <a href="https://www.tiktok.com/@mekinjir" target="_blank" class="social-icon" title="TikTok">
                     <i class="fa-brands fa-tiktok"></i>
@@ -289,7 +275,7 @@
         </div>
 
         <div class="links-section">
-            
+
             <!-- CARD 1: MEKI HUB -->
             <a href="https://discord.gg/tPP7VkFZ9" target="_blank" class="link-card">
                 <img src="https://files.catbox.moe/5swvjk.png" alt="hub" class="link-icon" draggable="false">
@@ -304,16 +290,35 @@
                 <i class="fa-solid fa-chevron-right link-arrow"></i>
             </a>
 
-            <!-- CARD 3: VSPHONE ORI (BARU) -->
-            <!-- GANTI href="..." di bawah ini kalau link VSPHONE ORI beda sama yang MOD -->
-            <a href="https://sfl.gl/EG21Lk" target="_blank" class="link-card">
+            <!-- CARD 3: VSPHONE ORI -->
+            <a href="https://www.vsphone.com/invite/vsag26j2hw" target="_blank" class="link-card">
                 <img src="https://files.catbox.moe/6af47n.jpg" alt="ori" class="link-icon" draggable="false">
                 <span class="link-text">VSPHONE ORI GRATIS 4 JAM PER AKUN</span>
                 <i class="fa-solid fa-chevron-right link-arrow"></i>
             </a>
 
-        </div>
+            <!-- CARD 4: APK AM GENERATOR (BARU) -->
+            <a href="https://sub4unlock.co/uImmUw2" target="_blank" class="link-card">
+                <img src="https://ganga--link--ghhzdp9sv8hk.code.run/i/8ab9nua0xh.jpg" alt="am generator" class="link-icon" draggable="false">
+                <span class="link-text">APK AM GENERATOR</span>
+                <i class="fa-solid fa-chevron-right link-arrow"></i>
+            </a>
 
+            <!-- CARD 5: WEB EMAIL GENERATOR (BARU) -->
+            <a href="https://meki-temp-mail.vercel.app/" target="_blank" class="link-card">
+                <img src="https://ganga--link--ghhzdp9sv8hk.code.run/i/djpygid3ti.jpg" alt="web email generator" class="link-icon" draggable="false">
+                <span class="link-text">WEB EMAIL GENERATOR</span>
+                <i class="fa-solid fa-chevron-right link-arrow"></i>
+            </a>
+
+            <!-- CARD 6: APK EMAIL GENERATOR (BARU) -->
+            <a href="https://sub4unlock.co/Dpy8XJ" target="_blank" class="link-card">
+                <img src="https://ganga--link--ghhzdp9sv8hk.code.run/i/djpygid3ti.jpg" alt="apk email generator" class="link-icon" draggable="false">
+                <span class="link-text">APK EMAIL GENERATOR</span>
+                <i class="fa-solid fa-chevron-right link-arrow"></i>
+            </a>
+
+        </div>
     </div>
 
     <div class="floating-footer">
